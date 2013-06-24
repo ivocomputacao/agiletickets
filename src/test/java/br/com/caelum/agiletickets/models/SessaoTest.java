@@ -13,7 +13,10 @@ public class SessaoTest {
 
         Assert.assertTrue(sessao.podeReservar(1));
 	}
-
+	/**
+	 * Não é legar colocar esse nome, tinha que ficar um texto mais generico, tipo nao posso vender mais que tenho
+	 * @throws Exception
+	 */
 	@Test
 	public void naoDeveVender3ingressoSeHa2vagas() throws Exception {
 		Sessao sessao = new Sessao();
