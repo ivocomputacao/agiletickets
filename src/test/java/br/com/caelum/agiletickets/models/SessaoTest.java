@@ -1,14 +1,23 @@
 package br.com.caelum.agiletickets.models;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class SessaoTest {
-
+	private Sessao sessao;
+	
+	/**
+	 * O before faz o junit rodar sempre antes de cada teste, para cada teste ele roda esse metodo.
+	 */
+	@Before
+	public void inicializa() {
+		this.sessao = new Sessao();
+	}
 
 	@Test
 	public void deveVender1ingressoSeHa2vagas() throws Exception {
-		Sessao sessao = new Sessao();
+		Sessao sessao = this.sessao;
         sessao.setTotalIngressos(2);
 
         Assert.assertTrue(sessao.podeReservar(1));
@@ -19,7 +28,7 @@ public class SessaoTest {
 	 */
 	@Test
 	public void naoDeveVender3ingressoSeHa2vagas() throws Exception {
-		Sessao sessao = new Sessao();
+		Sessao sessao = this.sessao;
 		sessao.setTotalIngressos(2);
 
 		Assert.assertFalse(sessao.podeReservar(3));
@@ -27,7 +36,7 @@ public class SessaoTest {
 
 	@Test
 	public void reservarIngressosDeveDiminuirONumeroDeIngressosDisponiveis() throws Exception {
-		Sessao sessao = new Sessao();
+		Sessao sessao = this.sessao;
 		sessao.setTotalIngressos(5);
 
 		sessao.reserva(3);
@@ -36,7 +45,7 @@ public class SessaoTest {
 	
 	@Test
 	public void podeReservarTodosIngressosDisponiveis() throws Exception {
-		Sessao sessao = new Sessao();
+		Sessao sessao = this.sessao;
 		sessao.setTotalIngressos(10);
 		Assert.assertEquals(true,sessao.podeReservar(10));
 	}
