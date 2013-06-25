@@ -102,4 +102,9 @@ public class EspetaculoTest {
 		
 		Assert.assertEquals(inicio.toDateTime(horario), sessoes.get(0).getInicio());
 	}
+	
+	@Test
+	public void TesteJenkins() {
+		Assert.assertEquals(1,2);
+	}
 }
